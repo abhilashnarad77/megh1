@@ -1,5 +1,11 @@
 pipeline {
-	agent any 
+	agent any
+	triggers {
+  pollSCM '* * * * *'
+}
+parameters {
+		choice(name: 'ENVIRONMENT', choices: ['QA','UAT'], description: 'Pick Environment value')
+	}
 	
 	stages {
 	    stage('Checkout') {
@@ -8,7 +14,7 @@ pipeline {
 		      }}
 		stage('Build') {
 	           steps {
-			  sh '/home/abhilash/Documents/DevOps/tar/aapache-maven-3.9.5/bin/mvn install'
+			  sh '/home/abhilash/Documents/DevOps/tar/apache-maven-3.9.5/bin/mvn install'
 	                 }}
 		stage('Deployment'){
 		   steps {
