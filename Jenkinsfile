@@ -12,6 +12,6 @@ pipeline {
 	                 }}
 		stage('Deployment'){
 		   steps {
-		sh 'cp target/grras2.war /home/abhilash/Documents/DevOps/tar/apache-tomcat-9.0.82/webapps'
+		sh 'cp target/megh1.war /home/abhilash/Documents/DevOps/tar/apache-tomcat-9.0.82/webapps'
 			}}	
 }}
